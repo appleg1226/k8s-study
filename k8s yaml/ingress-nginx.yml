@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-nginx
+  namespace: ctrl
+spec:
+  ports:
+    - name: service
+      port: 80
+      targetPort: 80
+      nodePort: 30000
+  selector:
+    app.kubernetes.io/name: ctrl
+    app.kubernetes.io/part-of: ctrl
+  type: NodePort
